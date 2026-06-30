@@ -1,8 +1,8 @@
 site_name: Theia
 site_description: Documentation for Theia, a suite of VFX editorial tools for DaVinci Resolve Studio.
 site_url: https://theia-docs.ming-q.com/
-repo_url: https://github.com/ming-qiu/theia-documentation
-repo_name: ming-qiu/theia-documentation
+repo_url: https://github.com/ming-qiu/theia
+repo_name: ming-qiu/theia
 edit_uri: edit/main/docs/
 
 docs_dir: docs
