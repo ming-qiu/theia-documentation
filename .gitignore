@@ -1,0 +1,12 @@
+# Internal notes, not for the public repo
+PUBLISHING.md
+
+# MkDocs build output (rebuilt by CI on every deploy; don't commit it)
+site/
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]

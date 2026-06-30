@@ -1,0 +1,89 @@
+site_name: Theia
+site_description: Documentation for Theia, a suite of VFX editorial tools for DaVinci Resolve Studio.
+site_url: https://theia-docs.ming-q.com/
+repo_url: https://github.com/ming-qiu/theia-documentation
+repo_name: ming-qiu/theia-documentation
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ming-qiu/theia
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: installation.md
+      - Quick Start: quick-start.md
+  - Tools:
+      - Clip Inventory: tools/clip-inventory.md
+      - Frame Counter: tools/frame-counter.md
+      - Add Metadata: tools/add-metadata.md
+      - Shot List: tools/shot-list.md
+  - Workflows:
+      - Export a Clip Inventory: workflows/export-clip-inventory.md
+      - Generate Frame Counters: workflows/generate-frame-counters.md
+      - Add Metadata to a Timeline: workflows/add-metadata-to-timeline.md
+      - Export a VFX Shot List: workflows/export-shot-list.md
+  - Troubleshooting: troubleshooting.md
+  - FAQ: faq.md
