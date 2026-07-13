@@ -36,13 +36,26 @@ Theia is four independent tools that share a common pipeline. You don't have to 
 The four tools are designed to be used in sequence, with the Excel spreadsheet and frame counter video acting as the "glue" between Resolve and your VFX shot data:
 
 ```mermaid
+---
+config:
+  layout: elk
+  theme: neutral
+  look: handDrawn
+---
 flowchart LR
-    A[Resolve Timeline] -->|Clip Inventory| B[clip_inventory.xlsx]
-    B -->|fill in VFX shot codes & metadata by hand| C[Filled-in spreadsheet]
-    D[Frame Counter] -->|generates| E[frame_counter.mov]
-    C -->|Add Metadata| F[Timeline with frame counter track + titles/subtitles]
-    E -->|Add Metadata| F
-    F -->|Shot List| G[shot_list.xlsx: Shots + Elements]
+    A["Timeline"] == Clip Inventory ==> B["clip_inventory.xlsx"]
+    B == fill in VFX metadata ==> C["Filled-in spreadsheet"]
+    D["Frame Counter"] == Frame Counter ==> E["frame_counter.mov"]
+    C == Add Metadata ==> F["Timeline with frame counter track + titles/subtitles"]
+    E == Add Metadata ==> F
+    F -- Shot List --> G["shot_list.xlsx: Shots + Elements"]
+
+    style A fill:#BBDEFB
+    style G fill:#C8E6C9
+    linkStyle 0 stroke:#FF6D00,fill:none
+    linkStyle 2 stroke:#FF6D00,fill:none
+    linkStyle 3 stroke:#FF6D00,fill:none
+    linkStyle 4 stroke:#FF6D00,fill:none
 ```
 
 If that looks like a lot, start with the [Quick Start](quick-start.md) guide — it walks through the minimum steps to get a clip inventory out of a timeline, which is where most workflows begin.
