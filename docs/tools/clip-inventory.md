@@ -7,17 +7,26 @@ Exports every visible clip on your selected video tracks to an Excel spreadsheet
 <br clear="left">
 
 !!! info "Handles "unconsolidated" timelines"
-    Clip Inventory accounts for multi-track occlusion (a clip on a higher track hides what's underneath it). Transitions are ignored when finding cut points.
+    Clip Inventory accounts for multi-track occlusion (a clip on a higher track hides what's underneath it).
 
 ## Launching it
 
 **Workspace → Scripts → Edit → 01 Clip Inventory**, with a timeline open in Resolve's Edit page.
 
-![Original Timeline](./screenshots/tl_before.png)
+![Clip Inventory Select Tracks](./screenshots/select_tracks.png){width=400}
 
-![Clip Inventory Select Tracks](./screenshots/select_tracks.png){width=500}
+**Fig. 1** Select tracks with shot content
 
-![Shot Division](./screenshots/tl_after.png)
+
+![Timeline](./screenshots/clip_inventory_timeline.png)
+
+**Fig. 2** How Clip Inventory interpret cut points
+
+
+![Exported Excel](./screenshots/clip_inventory_excel.png){width=400}
+
+**Fig. 3** Exported Clip Inventory Excel sheet
+
 
 ## Interface reference
 
@@ -70,8 +79,8 @@ Clip Inventory walks the timeline from the highest selected track down to the lo
 Transitions (anything Resolve labels as a dissolve, wipe, or fade) are never exported as their own row. Instead, they're folded into the adjacent clip's range:
 
 * A dissolve **between two clips** on the same track is treated as a hard cut at its midpoint — the back half goes to the outgoing clip's range, the front half to the incoming clip's.
-* A dissolve at the **end** of a clip (fading to nothing, or to another track) extends that clip's exported range to cover half the dissolve.
-* A dissolve at the **start** of a clip (fading in from nothing) extends that clip's range backward to cover half the dissolve.
+* A dissolve at the **end** of a clip (fading to nothing, or to another track) extends that clip's in point to cover half the dissolve.
+* A dissolve at the **start** of a clip (fading in from nothing) extends that clip's out point to cover half the dissolve.
 
 Disabled clips (clips you've disabled in Resolve without removing them) are skipped entirely.
 
