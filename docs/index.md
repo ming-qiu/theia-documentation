@@ -13,19 +13,19 @@ Theia is four independent tools that share a common pipeline. You don't have to 
 
 <div class="grid cards" markdown>
 
--   <img src="./assets/icons/clip_inventory_icon.png" alt="Clip Inventory icon" width="32" align="left" style="margin-right: 1em;"> **[Clip Inventory](tools/clip-inventory.md)**
+-   **[Clip Inventory](tools/clip-inventory.md)**
 
     Export basic information of visible clips on selected video tracks to an Excel spreadsheet, with thumbnails, reel names, and in / out timecodes.
 
--   <img src="./assets/icons/frame_counter_icon.png" alt="Clip Inventory icon" width="32" align="left" style="margin-right: 1em;"> **[Frame Counter](tools/frame-counter.md)**
+-   **[Frame Counter](tools/frame-counter.md)**
 
     Generate a MOV video of frame numbers, with timecode metadata embedded for editorial reference.
 
--   <img src="./assets/icons/add_metadata_icon.png" alt="Clip Inventory icon" width="32" align="left" style="margin-right: 1em;"> **[Add Metadata](tools/add-metadata.md)**
+-   **[Add Metadata](tools/add-metadata.md)**
 
     Take a filled-in clip inventory spreadsheet and push it back into Resolve: place frame counter clips on the timeline, and / or export FCPXML title files and SRT subtitles from your metadata columns.
 
--   <img src="./assets/icons/shot_list_icon.png" alt="Clip Inventory icon" width="32" align="left" style="margin-right: 1em;"> **[Shot List](tools/shot-list.md)**
+-   **[Shot List](tools/shot-list.md)**
 
     Build a structured VFX shot list — Shots and Elements sheets — directly from your timeline's frame counter track and per-track EDLs.
 
