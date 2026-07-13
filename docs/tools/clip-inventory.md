@@ -6,14 +6,18 @@ Exports every visible clip on your selected video tracks to an Excel spreadsheet
 
 <br clear="left">
 
-!!! info "Handles messy timelines"
-    Clip Inventory accounts for multi-track occlusion (a clip on a higher track hides what's underneath it) and transitions (dissolves, wipes, fades), so you don't need a perfectly tidy single-track timeline before exporting.
+!!! info "Handles "unconsolidated" timelines"
+    Clip Inventory accounts for multi-track occlusion (a clip on a higher track hides what's underneath it). Transitions are ignored when finding cut points.
 
 ## Launching it
 
 **Workspace → Scripts → Edit → 01 Clip Inventory**, with a timeline open in Resolve's Edit page.
 
-![Clip Inventory main window](../assets/screenshots/clip-inventory-main.png)
+![Original Timeline](./screenshots/tl_before.png)
+
+![Clip Inventory Select Tracks](./screenshots/select_tracks.png){width=500}
+
+![Shot Division](./screenshots/tl_after.png)
 
 ## Interface reference
 
