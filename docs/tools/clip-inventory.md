@@ -18,24 +18,29 @@ In the following example, shot footage is on video track 1 and 2.
 * See the [Export a Clip Inventory](../workflows/export-clip-inventory.md) workflow for the full step-by-step including what to do with the spreadsheet afterward.
 
 ![Clip Inventory Select Tracks](./screenshots/clip_inventory_select_tracks.png){width=400}
+
 **Fig. 1** Select tracks with shot content
 
 
 ![Timeline](./screenshots/clip_inventory_timeline.png)
+
 **Fig. 2** How Clip Inventory interpret cut points
 
 
 ![Exported Excel](./screenshots/clip_inventory_excel.png){width=400}
+
 **Fig. 3** Exported Clip Inventory Excel sheet
 
 
 ![Subtitle Track](./screenshots/clip_inventory_sub.png)
-![Subtitle Track Selected](./screenshots/clip_inventory_sub_select.png){width=200}
+![Subtitle Track Selected](./screenshots/clip_inventory_sub_select.png){width=260}
+
 **Fig. 4** Read existing VFX shot codes from a subtitle track
 
 
 ![Duration Markers](./screenshots/clip_inventory_marker.png)
-![Duration Markers Selected](./screenshots/clip_inventory_marker_select.png){width=200}
+![Duration Markers Selected](./screenshots/clip_inventory_marker_select.png){width=260}
+
 **Fig. 5** Read existing VFX shot codes from duration markers
 
 ## Interface reference
