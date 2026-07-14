@@ -29,12 +29,12 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.tracking
-    - navigation.indexes
     - search.suggest
     - search.highlight
     - content.code.copy
     - content.action.edit
     - toc.follow
+    - toc.integrate
   icon:
     repo: fontawesome/brands/github
 
