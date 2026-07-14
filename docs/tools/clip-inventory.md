@@ -13,39 +13,48 @@ Exports every visible clip on your selected video tracks to an Excel spreadsheet
 
 **Workspace → Scripts → Edit → 01 Clip Inventory**, with a timeline open in Resolve's Edit page.
 
-![Clip Inventory Select Tracks](./screenshots/select_tracks.png){width=400}
+In the following example, shot footage is on video track 1 and 2.
 
+* See the [Export a Clip Inventory](../workflows/export-clip-inventory.md) workflow for the full step-by-step including what to do with the spreadsheet afterward.
+
+![Clip Inventory Select Tracks](./screenshots/clip_inventory_select_tracks.png){width=400}
 **Fig. 1** Select tracks with shot content
 
 
 ![Timeline](./screenshots/clip_inventory_timeline.png)
-
 **Fig. 2** How Clip Inventory interpret cut points
 
 
 ![Exported Excel](./screenshots/clip_inventory_excel.png){width=400}
-
 **Fig. 3** Exported Clip Inventory Excel sheet
 
+
+![Subtitle Track](./screenshots/clip_inventory_sub.png)
+![Subtitle Track Selected](./screenshots/clip_inventory_sub_select.png){width=200}
+**Fig. 4** Read existing VFX shot codes from a subtitle track
+
+
+![Duration Markers](./screenshots/clip_inventory_marker.png)
+![Duration Markers Selected](./screenshots/clip_inventory_marker_select.png){width=200}
+**Fig. 5** Read existing VFX shot codes from duration markers
 
 ## Interface reference
 
 ### Video Tracks
 
-A checklist of every video track on the current timeline, highest track on top (matching Resolve's own track order). All tracks are checked by default.
+A checklist of every video track on the current timeline. All tracks are checked by default.
 
-* **Select All / Deselect All** — bulk-check or uncheck every track.
-* **↻ (refresh)** — re-reads the track list from Resolve. Use this if you open a different timeline while the window is already open.
+* **↻ (refresh)** — re-reads the track list from Resolve. Use this if you make changes or open a different timeline while the Theia window is already open.
 * If no timeline is open, or Theia can't reach Resolve at all, the list falls back to a single "Track 1" checkbox so the window still opens.
 
-Only clips on **checked** tracks are considered. Unchecked tracks are treated as if they don't exist — they won't occlude clips below them either.
+Only clips on **checked** tracks are considered. Unchecked tracks are treated as if they don't exist.
 
 ### Existing VFX Shot Code
 
-An optional checkbox that lets you pull existing shot codes into the export, if your timeline already has them marked some other way. When checked, a dropdown lets you choose the source:
+If your timeline already has VFX shots marked in a subtitle track or with duration markers, you have the option to only pull existing shot codes into the export. When checked, a dropdown lets you choose the source:
 
 * **Subtitle Track** — reads shot codes from a subtitle track's text. Checking this reveals a second checklist of subtitle tracks on the timeline; pick exactly one (selecting a different one automatically deselects the previous choice).
-* **Duration Marker** — reads shot codes from timeline markers instead of a subtitle track.
+* **Duration Marker** — reads shot codes from duration markers instead of a subtitle track.
 
 **Export VFX shots only** (enabled only when "Existing VFX Shot Code" is checked) restricts the export to just the clips that have a shot code from the selected source, skipping everything else.
 
@@ -55,37 +64,30 @@ Where the `.xlsx` file gets saved. Defaults to `~/Downloads/clip_inventory.xlsx`
 
 ### Go
 
-Starts the export. The log panel below streams progress live: which tracks are being processed, which clips are visible vs. occluded, and how transitions were classified. When it finishes, a dialog reports how many clips were exported and offers an **Open File** button to launch the spreadsheet immediately.
+Starts the export. The log panel below streams progress live: which tracks are being processed, which clips are visible vs. occluded, and how transitions were classified.
 
 ## What ends up in the spreadsheet
 
-One row per **visible portion** of a clip — if a clip is partially covered by something on a track above it, only its visible range becomes a row. Columns, left to right:
 
 | Column | Contents |
 |---|---|
-| Thumbnail | A frame grabbed from the middle of the clip's visible range. |
-| Reel Name | The clip's reel/source name from Resolve's media pool. |
-| Cut Order | Sequential position in the timeline, 1-based. |
-| Record In / Record Out | Timeline (record) timecode for the visible range. These headers are bold so they stand out — keep them named "Record In" / "Record Out" if you rename columns, since [Add Metadata](add-metadata.md) auto-detects them by that name. |
-| Duration | Length of the visible range. |
-| Source In | The source-clip timecode corresponding to the start of the visible range. |
-| VFX Shot Code | Only present if "Existing VFX Shot Code" was enabled — the shot code read from the subtitle track or duration marker. |
-| Metadata (column H onward) | Left blank. This is where you fill in your own VFX shot codes, vendor assignments, descriptions, or anything else your pipeline tracks. |
+| Thumbnail | A frame grabbed from the in point of the clip on the timeline. |
+| Reel Name | The clip's reel / source name from Resolve's media pool. |
+| Cut Order | Sequential position in the timeline. |
+| Record In / Record Out | Timeline (record) timecode of the clip's visible range. **Keep them named "Record In" / "Record Out"** if you rename columns, since [Add Metadata](add-metadata.md) auto-detects them by that name. |
+| Duration | Length of the clip. |
+| Source In | Source timecode of the clip at the in point of its visible range. |
+| VFX Shot Code | Shot codes read from the subtitle track or duration marker. Only present if "Existing VFX Shot Code" was enabled. |
+| Metadata (column H onward) | Left blank. This is where you fill in your own VFX shot codes, vendor assignments, descriptions, etc.. |
 
-## How occlusion and transitions are handled
+## About Transitions
 
-Clip Inventory walks the timeline from the highest selected track down to the lowest, keeping a running record of which parts of the timeline are still "unclaimed." A clip only produces a row for the portion of its range that hasn't already been claimed by something on a track above it. Once every frame of the timeline has been claimed, lower tracks are skipped entirely — there's nothing left for them to be visible in.
-
-Transitions (anything Resolve labels as a dissolve, wipe, or fade) are never exported as their own row. Instead, they're folded into the adjacent clip's range:
+Transitions - anything Resolve labels as a dissolve, wipe, or fade - are handled depending on their locations:
 
 * A dissolve **between two clips** on the same track is treated as a hard cut at its midpoint — the back half goes to the outgoing clip's range, the front half to the incoming clip's.
-* A dissolve at the **end** of a clip (fading to nothing, or to another track) extends that clip's in point to cover half the dissolve.
-* A dissolve at the **start** of a clip (fading in from nothing) extends that clip's out point to cover half the dissolve.
+* A dissolve at the **end** of a clip (fading to nothing, or to another track) extends that clip's Record Out to cover half the dissolve.
+* A dissolve at the **start** of a clip (fading in from nothing) extends that clip's Record In to cover half the dissolve.
 
-Disabled clips (clips you've disabled in Resolve without removing them) are skipped entirely.
+## Known Problems
 
-## Tips
-
-* If a thumbnail looks like it came from the wrong clip on a busy multi-track section, that's the one case worth double-checking after export — Theia momentarily solos each track to get a deterministic thumbnail, but extremely fast cuts can occasionally still grab a neighboring frame.
-* Run the export again any time after editorial changes — it always reads live from whatever timeline is currently open, so there's no "stale" state to worry about.
-* See the [Export a Clip Inventory](../workflows/export-clip-inventory.md) workflow for the full step-by-step including what to do with the spreadsheet afterward.
+* On the first run, the very first thumbnail might get lost in space. Re-running it usually solves the problem.
