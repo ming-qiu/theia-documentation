@@ -6,7 +6,7 @@ Exports every visible clip on your selected video tracks to an Excel spreadsheet
 
 <br clear="left">
 
-!!! info "Handles "unconsolidated" timelines"
+!!! note "Handles "unconsolidated" timelines"
     Clip Inventory accounts for multi-track occlusion (a clip on a higher track hides what's underneath it).
 
 ## Launching it
