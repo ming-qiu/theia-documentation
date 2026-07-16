@@ -85,7 +85,7 @@ Starts the export. The log panel below streams progress live: which tracks are b
 | VFX Shot Code | Shot codes read from the subtitle track or duration marker. Only present if "Existing VFX Shot Code" was enabled. |
 | Metadata (column H onward) | Left blank. This is where you fill in your own VFX shot codes, vendor assignments, descriptions, etc.. |
 
-## About Transitions
+## About transitions
 
 Transitions - anything Resolve labels as a dissolve, wipe, or fade - are handled depending on their locations:
 
