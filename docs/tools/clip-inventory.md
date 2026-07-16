@@ -93,6 +93,6 @@ Transitions - anything Resolve labels as a dissolve, wipe, or fade - are handled
 * A dissolve at the **end** of a clip (fading to nothing, or to another track) extends that clip's Record Out to cover half the dissolve.
 * A dissolve at the **start** of a clip (fading in from nothing) extends that clip's Record In to cover half the dissolve.
 
-## Known Problems
+## Known problems
 
 * On the first run, the very first thumbnail might get lost in space. Re-running it usually solves the problem.
