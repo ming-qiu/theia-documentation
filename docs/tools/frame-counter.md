@@ -4,8 +4,6 @@
 
 Generates a MOV of frame numbers with timecode metadata embedded.
 
-<br clear="left">
-
 Frame Counter is a standalone generator and doesn't read anything from Resolve. You set the size, frame range, and frame rate, and it renders a video to a folder you choose.
 
 ## Launching it
