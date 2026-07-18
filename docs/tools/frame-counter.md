@@ -2,36 +2,44 @@
 
 # Frame Counter
 
-Generates a MOV video of burned-in frame numbers, with real timecode metadata embedded — the standard reference video VFX vendors use to confirm exactly which frame they're looking at.
+Generates a MOV of frame numbers with timecode metadata embedded.
 
 <br clear="left">
 
-Frame Counter doesn't read anything from Resolve — it's a standalone generator. You set the size, frame range, and frame rate, and it renders a video to a folder you choose.
+Frame Counter is a standalone generator and doesn't read anything from Resolve. You set the size, frame range, and frame rate, and it renders a video to a folder you choose.
 
 ## Launching it
 
-**Workspace → Scripts → Edit → 02 Frame Counter** — no timeline needs to be open.
+**Workspace → Scripts → Edit → 02 Frame Counter**
 
-![Frame Counter main window](../assets/screenshots/frame-counter-main.png)
+
+**Fig. 1** A typical setup
+
+![Frame Counter typical setup](./screenshots/frame_counter_main.png){width=400}
+
+
+**Fig. 2** Generated frame counter video
+
+![Frame Counter video](./screenshots/frame_counter_video.gif){width=200}
 
 ## Interface reference
 
 ### Video Size
 
-* **Width / Height** — in pixels, up to 3840×2160. Defaults to a small 200×80 burn-in box rather than a full frame, since this is usually composited as an overlay rather than viewed full-screen.
+* **Width / Height** — in pixels, up to 3840×2160. Defaults to 200×80, since this is usually placed at a corner of the frame.
 * **Text Color** — White, Green, or Yellow.
 
 ### Frame Range
 
-* **Start / End** — the first and last frame numbers to generate. A live label shows the resulting frame count, or a warning if End isn't greater than Start.
+* **Start / End** — the first and last frame numbers to generate.
 
 ### Frame Rate
 
-Choose a preset (23.976, 24, 25, 29.97, 30, 60) or **Custom...** to type any other value. This determines both the embedded timecode and the playback rate of the rendered video — it should match the frame rate of the timeline or footage you're counting against.
+Choose a preset (23.976, 24, 25, 29.97, 30, 60) or **Custom...** to type any other value. This determines both the embedded timecode and the playback rate of the rendered video. It should match the frame rate of the timeline you are working with.
 
 ### Font
 
-Path to a `.otf` or `.ttf` font file used to draw the numbers. Defaults to the SF Pro font bundled with Theia (`/Library/Application Support/Theia/resources/fonts/SF-Pro-Text-Regular.otf`). If the path is invalid when you click **Go**, you'll be asked whether to continue with a plain default font instead of being blocked outright.
+Path to a `.otf` or `.ttf` font file used to draw the numbers. Defaults to the SF Pro font bundled with Theia (`/Library/Application Support/Theia/resources/fonts/SF-Pro-Text-Regular.otf`). If the path is invalid when you click **Go**, you'll be asked whether to continue with a plain default font.
 
 ### Output Directory
 
@@ -49,8 +57,8 @@ The output file is named `frame_counter_<fps>fps.mov` (for example `frame_counte
 !!! note "Encoder fallback"
     Frame Counter tries Apple's hardware encoder (`h264_videotoolbox`) first for speed, and falls back to software `libx264` automatically if that's unavailable. You'll see whichever one succeeded in the log.
 
-## Tips
+## Best practices
 
-* Generate a range comfortably wider than you expect to need — re-running with a new range later is cheap, but matching an existing video's exact frame numbering after the fact is not.
+* Generate a range comfortably longer than you expect to need.
 * The frame rate you choose here must match what you'll tell [Add Metadata](add-metadata.md) when you place this video on the timeline, or the embedded timecodes won't line up with your shots.
 * See [Generate Frame Counters](../workflows/generate-frame-counters.md) for the full workflow, including how this video feeds into Add Metadata and Shot List.
