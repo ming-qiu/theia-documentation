@@ -4,9 +4,8 @@
 
 Exports every visible clip on your selected video tracks to an Excel spreadsheet — with thumbnails, reel names, timecodes, and durations — so you have a clean starting point for adding VFX shot codes and other metadata by hand.
 
-<br clear="left">
 
-!!! info "Handles "unconsolidated" timelines"
+!!! note "Handles "unconsolidated" timelines"
     Clip Inventory accounts for multi-track occlusion (a clip on a higher track hides what's underneath it).
 
 ## Launching it
@@ -86,7 +85,7 @@ Starts the export. The log panel below streams progress live: which tracks are b
 | VFX Shot Code | Shot codes read from the subtitle track or duration marker. Only present if "Existing VFX Shot Code" was enabled. |
 | Metadata (column H onward) | Left blank. This is where you fill in your own VFX shot codes, vendor assignments, descriptions, etc.. |
 
-## About Transitions
+## About transitions
 
 Transitions - anything Resolve labels as a dissolve, wipe, or fade - are handled depending on their locations:
 
@@ -94,6 +93,6 @@ Transitions - anything Resolve labels as a dissolve, wipe, or fade - are handled
 * A dissolve at the **end** of a clip (fading to nothing, or to another track) extends that clip's Record Out to cover half the dissolve.
 * A dissolve at the **start** of a clip (fading in from nothing) extends that clip's Record In to cover half the dissolve.
 
-## Known Problems
+## Known problems
 
 * On the first run, the very first thumbnail might get lost in space. Re-running it usually solves the problem.
