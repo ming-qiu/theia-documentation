@@ -28,19 +28,19 @@ In the following example, shot footage is on video track 1 and 2.
 
 **Fig. 3** Exported Clip Inventory Excel sheet
 
-![Exported Excel](./screenshots/clip_inventory_excel.png){width=400}
+![Exported Excel](./screenshots/clip_inventory_excel.png){width=500}
 
 
 **Fig. 4** Read existing VFX shot codes from a subtitle track
 
-![Subtitle Track](./screenshots/clip_inventory_sub.png){width=400}
+![Subtitle Track](./screenshots/clip_inventory_sub.png){width=500}
 
 ![Subtitle Track Selected](./screenshots/clip_inventory_sub_select.png){width=260}
 
 
 **Fig. 5** Read existing VFX shot codes from duration markers
 
-![Duration Markers](./screenshots/clip_inventory_marker.png){width=400}
+![Duration Markers](./screenshots/clip_inventory_marker.png){width=500}
 
 ![Duration Markers Selected](./screenshots/clip_inventory_marker_select.png){width=260}
 
