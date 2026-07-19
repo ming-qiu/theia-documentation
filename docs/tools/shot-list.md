@@ -33,7 +33,11 @@ Builds a list of shots and a list of elements from your timeline. Listed informa
 
 **Fig. 3** Exported Shot List Excel sheet
 
+* Shots:
+
 ![Exported Shot List: Shots](./screenshots/shot_list_excel_shots.png)
+
+* Elements:
 
 ![Exported Shot List: Elements](./screenshots/shot_list_excel_elements.png)
 
