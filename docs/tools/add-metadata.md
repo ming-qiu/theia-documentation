@@ -11,7 +11,7 @@ Reads a filled-in clip inventory spreadsheet and adds metadata to timeline, in u
 
 **Workspace → Scripts → Edit → 03 Add Metadata**, with the matching timeline open.
 
-![Add Metadata main window](./screenshots/add-metadata-main.png){width=500}
+![Add Metadata main window](./screenshots/add_metadata_main.png){width=500}
 
 ![Timeline before and after](./screenshots/add_metadata_timeline.gif)
 
