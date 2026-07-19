@@ -23,12 +23,12 @@ In the following example, shot footage is on video track 1 and 2.
 
 **Fig. 2** How Clip Inventory interpret cut points
 
-![Timeline](./screenshots/clip_inventory_timeline.png)
+![Timeline with Cuts](./screenshots/clip_inventory_timeline.png)
 
 
 **Fig. 3** Exported Clip Inventory Excel sheet
 
-![Exported Excel](./screenshots/clip_inventory_excel.png){width=500}
+![Exported Clip Inventory](./screenshots/clip_inventory_excel.png){width=500}
 
 
 **Fig. 4** Read existing VFX shot codes from a subtitle track

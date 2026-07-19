@@ -13,14 +13,13 @@ Builds a list of shots and a list of elements from your timeline. Listed informa
 
 ## Prep
 
-Consolidate your BG track. In the following example, track 1 and 2 both contain BG elements and need to be consolidated into 1 track.
+* Consolidate your BG track. In the following example, track 1 and 2 both contain BG elements and need to be consolidated into 1 track.
 
 **Fig. 1 Consolidate timeline**
 
 ![Consolidate timeline](./screenshots/shot_list_consolidate_timeline.gif)
 
-
-Export an EDL for each track that contains shot content.
+* Export an EDL for each track that contains shot content.
 
 ## Launching it
 
@@ -29,8 +28,14 @@ Export an EDL for each track that contains shot content.
 
 **Fig. 2** A typical setup
 
-![Shot List main window](./screenshots/shot_list_main.png)
+![Shot List Typical Setup](./screenshots/shot_list_main.png){width=500}
 
+
+**Fig. 3** Exported Shot List Excel sheet
+
+![Exported Shot List: Shots](./screenshots/shot_list_excel_shots.png)
+
+![Exported Shot List: Elements](./screenshots/shot_list_excel_shots.png)
 
 
 ## Interface reference

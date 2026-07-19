@@ -13,12 +13,12 @@ Frame Counter is a standalone generator and doesn't read anything from Resolve. 
 
 **Fig. 1** A typical setup
 
-![Frame Counter typical setup](./screenshots/frame_counter_main.png){width=400}
+![Frame Counter Typical Setup](./screenshots/frame_counter_main.png){width=400}
 
 
 **Fig. 2** Generated frame counter video
 
-![Frame Counter video](./screenshots/frame_counter_video.gif){width=200}
+![Frame Counter Video](./screenshots/frame_counter_video.gif){width=200}
 
 ## Interface reference
 
