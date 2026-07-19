@@ -23,7 +23,7 @@ Path to your filled-in clip inventory spreadsheet. As soon as you enter or brows
 
 ### Clip Data Columns
 
-Two dropdowns, **Record In** and **Record Out**, listing every column in your sheet that has a header. Theia tries to auto-select these by matching a column header named (case-insensitively) "Record In" or "Record Out" — which is exactly what Clip Inventory names them. If auto-detection doesn't find a match (for example, you renamed a column, or built the sheet by hand), pick the right columns yourself. **Go stays disabled until both are set.**
+Theia tries to auto-select **Record In** and **Record Out** columns by headers (case-sensitive). If auto-detection doesn't find a match (for example, you renamed a column, or built the sheet by hand), pick the right columns yourself.
 
 ### Frame Counter
 
