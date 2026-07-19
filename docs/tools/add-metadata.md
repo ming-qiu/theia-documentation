@@ -36,9 +36,8 @@ Adds a new video track to the timeline and places a frame counter clip at the po
 
 ### Metadata Columns
 
-A checklist of every populated column in your sheet (aside from the thumbnail column). Whichever columns you check here are the ones written out by **FCPXML Titles** and **SRT Subtitles** below — typically your custom shot code, vendor, or note columns, but you can include any column.
+Select here the columns you want written out by **FCPXML Titles** and **SRT Subtitles** below. Typically, this can be VFX work, shot description, vendor, or general notes, but you can include any column.
 
-* **Select All / Deselect All** — bulk toggle.
 * **↻ (refresh)** — reload columns from the file (use after editing the spreadsheet without restarting Theia).
 
 ### FCPXML Titles
@@ -53,7 +52,7 @@ A checklist of every populated column in your sheet (aside from the thumbnail co
 
 ### Set Frame Rate
 
-The timeline's frame rate, used to convert Record In/Out timecodes correctly for both the frame counter placement and the FCPXML/SRT timing. Theia attempts to auto-detect this from the currently open timeline; if it can't, or the value doesn't match a preset, **Custom...** appears with the detected (or last-used) value pre-filled. Double-check this matches your timeline before clicking Go.
+Theia attempts to auto-detect this from the currently open timeline; if it can't, or the value doesn't match a preset, **Custom...** appears with the detected (or last-used) value pre-filled. Double-check this matches your timeline before clicking Go.
 
 ### Go
 
@@ -66,9 +65,3 @@ Disabled until both Record In and Record Out columns are chosen. Validates that 
 | Frame Counter | New video track on the open timeline, with one frame counter clip per shot, named by VFX shot code |
 | FCPXML Titles | One `<column name>.fcpxml` file per selected column |
 | SRT Subtitles | One `<column name>.srt` file per selected column |
-
-## Tips
-
-* You can run Add Metadata multiple times against the same spreadsheet as you fill in more columns — each run only touches the operations you've enabled.
-* If the FCPXML or SRT files come out empty for a column, check that the corresponding rows in the spreadsheet actually have that column filled in — empty cells produce no title/subtitle entry.
-* See [Add Metadata to a Timeline](../workflows/add-metadata-to-timeline.md) for the complete end-to-end workflow, including importing the FCPXML/SRT files back into Resolve.
