@@ -33,13 +33,13 @@ In the following example, shot footage is on video track 1 and 2.
 
 **Fig. 4** Read existing VFX shot codes from a subtitle track
 
-![Subtitle Track](./screenshots/clip_inventory_sub.png)
+![Subtitle Track](./screenshots/clip_inventory_sub.png){width=300}
 ![Subtitle Track Selected](./screenshots/clip_inventory_sub_select.png){width=260}
 
 
 **Fig. 5** Read existing VFX shot codes from duration markers
 
-![Duration Markers](./screenshots/clip_inventory_marker.png)
+![Duration Markers](./screenshots/clip_inventory_marker.png){width=300}
 ![Duration Markers Selected](./screenshots/clip_inventory_marker_select.png){width=260}
 
 
@@ -85,13 +85,18 @@ Starts the export. The log panel below streams progress live: which tracks are b
 | VFX Shot Code | Shot codes read from the subtitle track or duration marker. Only present if "Existing VFX Shot Code" was enabled. |
 | Metadata (column H onward) | Left blank. This is where you fill in your own VFX shot codes, vendor assignments, descriptions, etc.. |
 
-## About transitions
+## Editorial details
 
-Transitions - anything Resolve labels as a dissolve, wipe, or fade - are handled depending on their locations:
+Transitions - anything Resolve labels as a dissolve, wipe, or fade - are considered part of the shot.
 
-* A dissolve **between two clips** on the same track is treated as a hard cut at its midpoint — the back half goes to the outgoing clip's range, the front half to the incoming clip's.
-* A dissolve at the **end** of a clip (fading to nothing, or to another track) extends that clip's Record Out to cover half the dissolve.
-* A dissolve at the **start** of a clip (fading in from nothing) extends that clip's Record In to cover half the dissolve.
+![Transition Calculated](./screenshots/clip_inventory_transition.png){width=260}
+
+Segments of non-linear retimes are handled as individual clips:
+
+* If the non-linear retime is done by keyframing within a clip, the clip appears as 1 row in the spreadsheet;
+* if the non-linear retime is done by retiming consecutive clips within a shot, the shot appears as multiple rows in the spreadsheet.
+
+![Non-linear Retime](./screenshots/clip_inventory_retime.png){width=320}
 
 ## Known problems
 
