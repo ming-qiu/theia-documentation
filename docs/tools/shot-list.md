@@ -2,18 +2,36 @@
 
 # Shot List
 
-Builds a structured, two-sheet shot list from your timeline — frame ranges, work/scan handles, retime and reposition flags, and (if you provide a previous version) a frame-accurate diff against the last cut. This is the tool VFX coordinators use to turn an edit into something a vendor or bidding sheet can actually consume.
+Builds a list of shots and a list of elements from your timeline. Listed information includes frame ranges, work / scan handles, retime, scale, reposition, etc.. Option to compare the current timeline against a previous shot list version and get changes in editorial points and retimes.
 
-<br clear="left">
 
 !!! tip "Depends on Add Metadata's frame counter track"
-    Shot List reads its shot boundaries and shot codes from a **frame counter track** that [Add Metadata](add-metadata.md) places on the timeline — it doesn't read the spreadsheet directly. Run Clip Inventory → fill in shot codes → Add Metadata (with Frame Counter enabled) before opening this tool. See [Export a Shot List](../workflows/export-shot-list.md) for the full chain.
+    Shot List reads its shot boundaries and shot codes from a **frame counter track** that [Add Metadata](add-metadata.md) places on the timeline. Run Clip Inventory → fill in shot codes → Add Metadata (with Frame Counter enabled) before using Shot List. See [Export a Shot List](../workflows/export-shot-list.md) for the full chain.
+
+!!! tip "Handles "consolidated" timelines"
+    Shot List assumes that the lowest selected track contains background elements, and anything selected above that are foreground elements. Make sure to consolidate all BG elements to 1 track.
+
+## Prep
+
+Consolidate your BG track. In the following example, track 1 and 2 both contain BG elements and need to be consolidated into 1 track.
+
+**Fig. 1 Consolidate timeline**
+
+![Consolidate timeline](./screenshots/shot_list_consolidate_timeline.gif)
+
+
+Export an EDL for each track that contains shot content.
 
 ## Launching it
 
 **Workspace → Scripts → Edit → 04 Shot List**, with the timeline (already containing a frame counter track) open.
 
-![Shot List main window](../assets/screenshots/shot-list-main.png)
+
+**Fig. 2** A typical setup
+
+![Shot List main window](./screenshots/shot_list_main.png)
+
+
 
 ## Interface reference
 

@@ -89,7 +89,8 @@ Starts the export. The log panel below streams progress live: which tracks are b
 
 ## Editorial details
 
-Transitions - anything Resolve labels as a dissolve, wipe, or fade - are considered part of the shot.
+Transitions - anything Resolve labels as a dissolve, wipe, or fade - are handled depending on their relation with the clip.
+If the transition is between two clips (even when the two clips are on different tracks), it's treated as a hard cut; if the transition is between a clip and nothing, the transition is considered part of the shot.
 
 ![Transition Calculated](./screenshots/clip_inventory_transition.png){width=400}
 
