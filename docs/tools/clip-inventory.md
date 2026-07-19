@@ -101,6 +101,8 @@ Segments of non-linear retimes are handled as individual clips:
 
 ![Non-linear Retime](./screenshots/clip_inventory_retime.png){width=500}
 
+In the above case, combine the two rows into one row in Excel.
+
 ## Known problems
 
 * On the first run, the very first thumbnail might get lost in space. Re-running it usually solves the problem.
