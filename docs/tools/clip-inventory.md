@@ -33,13 +33,15 @@ In the following example, shot footage is on video track 1 and 2.
 
 **Fig. 4** Read existing VFX shot codes from a subtitle track
 
-![Subtitle Track](./screenshots/clip_inventory_sub.png){width=300}
+![Subtitle Track](./screenshots/clip_inventory_sub.png){width=400}
+
 ![Subtitle Track Selected](./screenshots/clip_inventory_sub_select.png){width=260}
 
 
 **Fig. 5** Read existing VFX shot codes from duration markers
 
-![Duration Markers](./screenshots/clip_inventory_marker.png){width=300}
+![Duration Markers](./screenshots/clip_inventory_marker.png){width=400}
+
 ![Duration Markers Selected](./screenshots/clip_inventory_marker_select.png){width=260}
 
 
@@ -89,14 +91,14 @@ Starts the export. The log panel below streams progress live: which tracks are b
 
 Transitions - anything Resolve labels as a dissolve, wipe, or fade - are considered part of the shot.
 
-![Transition Calculated](./screenshots/clip_inventory_transition.png){width=260}
+![Transition Calculated](./screenshots/clip_inventory_transition.png){width=400}
 
 Segments of non-linear retimes are handled as individual clips:
 
 * If the non-linear retime is done by keyframing within a clip, the clip appears as 1 row in the spreadsheet;
 * if the non-linear retime is done by retiming consecutive clips within a shot, the shot appears as multiple rows in the spreadsheet.
 
-![Non-linear Retime](./screenshots/clip_inventory_retime.png){width=320}
+![Non-linear Retime](./screenshots/clip_inventory_retime.png){width=500}
 
 ## Known problems
 
