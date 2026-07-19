@@ -35,7 +35,7 @@ Builds a list of shots and a list of elements from your timeline. Listed informa
 
 ![Exported Shot List: Shots](./screenshots/shot_list_excel_shots.png)
 
-![Exported Shot List: Elements](./screenshots/shot_list_excel_shots.png)
+![Exported Shot List: Elements](./screenshots/shot_list_excel_elements.png)
 
 
 ## Interface reference
