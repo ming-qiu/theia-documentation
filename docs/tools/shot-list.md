@@ -124,8 +124,7 @@ When you supply an **Old Shot List**, Shot List matches shots between the old an
 
 Deltas are signed frame counts (e.g. `In: -12` means the shot now starts 12 frames earlier).
 
-## Tips
+## Best practices
 
-* Run [Add Metadata](add-metadata.md)'s Frame Counter step again any time shot codes or cut points change on the timeline — Shot List always reflects whatever's currently placed on the Frame Counter Track.
-* Keep a copy of each Shot List export before re-cutting — feeding the previous version back in as the **Old Shot List** is the easiest way to flag cut changes to vendors without manually diffing two spreadsheets.
+* Keep a copy of each Shot List export before changing your edit. Feeding the previous shot list back in as the **Old Shot List** is the easiest way to flag editorial changes.
 * See [Export a Shot List](../workflows/export-shot-list.md) for the complete step-by-step, including how the Frame Counter Track gets created in the first place.

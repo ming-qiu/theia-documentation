@@ -70,3 +70,8 @@ Disabled until both Record In and Record Out columns are chosen. Validates that 
 | Frame Counter | New video track on the open timeline, with one frame counter clip per shot, named by VFX shot code |
 | FCPXML Titles | One `<column name>.fcpxml` file per selected column |
 | SRT Subtitles | One `<column name>.srt` file per selected column |
+
+
+## Best practices
+
+* If the edit needs to change after you run Clip Inventory -> Add Metadata, edit with the added frame counter videos. That will ensure Shot List works as intended the next time you run it.
