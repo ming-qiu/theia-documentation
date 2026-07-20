@@ -4,7 +4,6 @@
 
 Exports every visible clip on your selected video tracks to an Excel spreadsheet — with thumbnails, reel names, timecodes, and durations — so you have a clean starting point for adding VFX shot codes and other metadata by hand.
 
-
 !!! note "Handles "unconsolidated" timelines"
     Clip Inventory accounts for multi-track occlusion (a clip on a higher track hides what's underneath it).
 

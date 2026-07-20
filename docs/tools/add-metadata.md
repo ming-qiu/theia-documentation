@@ -4,7 +4,7 @@
 
 Reads a filled-in clip inventory spreadsheet and adds metadata to timeline, in up to 3 independent ways — placing frame counter clips on the timeline, exporting FCPXML title files, and exporting SRT subtitle files. All three can run together in a single pass.
 
-!!! info "Start with a Clip Inventory export"
+!!! info "Depends on a Clip Inventory export"
     Add Metadata expects the spreadsheet shape that [Clip Inventory](clip-inventory.md) produces: it must contain **Record In**/**Record Out** columns and your own metadata typed into the columns after that. See [Export a Clip Inventory](../workflows/export-clip-inventory.md) if you haven't generated one yet.
 
 ## Launching it

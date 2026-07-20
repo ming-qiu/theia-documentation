@@ -5,10 +5,10 @@
 Builds a list of shots and a list of elements from your timeline. Listed information includes frame ranges, work / scan handles, retime, scale, reposition, etc.. Option to compare the current timeline against a previous shot list version and get changes in editorial points and retimes.
 
 
-!!! tip "Depends on Add Metadata's frame counter track"
+!!! info "Depends on Add Metadata's frame counter track"
     Shot List reads its shot boundaries and shot codes from a **frame counter track** that [Add Metadata](add-metadata.md) places on the timeline. Run Clip Inventory → fill in shot codes → Add Metadata (with Frame Counter enabled) before using Shot List. See [Export a Shot List](../workflows/export-shot-list.md) for the full chain.
 
-!!! tip "Handles "consolidated" timelines"
+!!! note "Handles "consolidated" timelines"
     Shot List assumes that the lowest selected track contains background elements, and anything selected above that are foreground elements. Make sure to consolidate all BG elements to 1 track.
 
 ## Prep
@@ -46,15 +46,12 @@ Builds a list of shots and a list of elements from your timeline. Listed informa
 
 ### Track Configuration
 
-* **Frame Counter Track** — the video track containing the named frame-counter clips that [Add Metadata](add-metadata.md) placed. Each clip's name is read as a shot code, and its position/length defines that shot's cut in/out. **Required.**
-* **Assign an EDL file for each track** — every other track you want included gets its own EDL file, browsed in per-track rows below the Frame Counter Track dropdown. A track left blank (no EDL) is ignored entirely — it won't appear in the output.
+* **Frame Counter Track** — the video track containing the named frame counter clips that [Add Metadata](add-metadata.md) placed. Each clip's name is read as a shot code, and its position and length define that shot's cut in / out. **Required.**
+* **Assign an EDL file for each track** — every track you want included requires an its own EDL file. A track left blank (no EDL) is ignored entirely and won't appear in the output.
 * **↻ (refresh)** — re-reads the track list from Resolve (use after opening a different timeline).
 
-!!! warning "Track 1 is always the background element"
-    Whichever track you assign an EDL to that has the **lowest track number** is treated as the shot's background plate — its reel name and source timecode become the shot's `Editorial Name` and `Cut In TC` on the Shots sheet, and it's labeled `ScanBg` on the Elements sheet. Every other EDL-assigned track is labeled `ScanFg01`, `ScanFg02`, and so on, based on its track number (Track 2 → `ScanFg01`, Track 3 → `ScanFg02`, etc., regardless of which tracks you actually picked). In practice: **put your background plate on Track 1** and assign its EDL there, so the labeling lines up with what's actually background.
-
-!!! warning "EDL events are matched by position, not by name or timecode"
-    Shot List lines up each clip on a track (in left-to-right order, skipping Resolve's built-in transitions) with the same-position event in that track's assigned EDL. If the EDL was exported from a different cut than what's currently on the track — clips added, removed, or reordered — the metadata pulled for each element (reel name, retime, dissolve handles) will be misaligned. Re-export the EDL from the exact cut you're running Shot List against.
+!!! info "Lowest selected track is for background elements"
+    The **lowest track** you assign an EDL to is treated as the track that contains all background elements. The BG element's reel name and source timecode become the shot's `Editorial Name` and `Cut In TC` on the Shots sheet, and it's labeled `ScanBg` on the Elements sheet. Every other EDL-assigned track is labeled `ScanFg01`, `ScanFg02`, and so on.
 
 ### Sequence Name
 
@@ -87,22 +84,22 @@ Validates that a frame rate, Frame Counter Track, and output path are set (and t
 
 Shot List writes two sheets.
 
-**Shots** — one row per frame-counter clip (i.e. one row per shot):
+**Shots**
 
 | Column | Contents |
 |---|---|
 | Sequence | Derived from the shot code, or the Sequence Name override. |
-| Cut Order | Sequential position of the shot on the Frame Counter Track, 1-based. |
+| Cut Order | Sequential position of the shot on the Frame Counter Track. |
 | Editorial Name | Reel name of the background (`ScanBg`) element. |
 | Shot Code | The frame-counter clip's name. |
 | Change to Cut | Only filled in if you supplied an Old Shot List — see below. |
-| Work In / Work Out | Cut In/Out minus/plus the Work Handle. |
-| Cut In / Cut Out | The shot's frame range, read from the frame counter's embedded timecode/burn-in numbers — these are the same numbers your vendor sees in the [Frame Counter](frame-counter.md) video, not raw timeline frame numbers. |
+| Cut In / Cut Out | The shot's frame range, read from the frame counter's embedded timecode/burn-in numbers. |
+| Work In / Work Out | Cut In / Out minus / plus the Work Handle. |
 | Cut Duration | `Cut Out - Cut In + 1`. |
-| Bg Retime / Fg Retime | An `x` flag (not a percentage) if the background, or any foreground element, has a retime applied. Check the Elements sheet's `Retime Summary` for the actual speed. |
+| Bg Retime / Fg Retime | An `x` flag (not a percentage) if the background, or any foreground element, has a retime applied. The Elements sheet contains retime details for each element. |
 | Cut In TC | Source timecode of the background element, taken from its EDL event. |
 
-**Elements** — one row per element (background or foreground plate) per shot, sorted within each shot:
+**Elements**
 
 | Column | Contents |
 |---|---|
@@ -111,10 +108,10 @@ Shot List writes two sheets.
 | Element | `ScanBg` for the background track, `ScanFg01`, `ScanFg02`, etc. for foreground tracks. |
 | Cut In / Cut Out | The parent shot's frame range (repeated on every element row for that shot). |
 | Clip Duration (with dissolve before retime) | This element's own duration, including any dissolve-handle extension, before retime adjustment. |
-| Clip In TC / Clip In Frames / Clip In / Clip Out / Clip Out Frames / Clip Out TC | The element's source in/out, in both timecode and frame-number form. |
+| Clip In / Out, Clip In / Out Frames, Clip In / Out TC | The element's source in / out, in VFX frame numbers, raw frame numbers, and timecode |
 | ScanIn / ScanOut | Clip In/Out minus/plus the Scan Handle — what to actually pull from the scan or source media. |
-| Retime Summary | Empty if 100% speed. Otherwise either a percentage (e.g. `50%`) for a single retimed segment, or a breakdown like `48 @ 24, 24 @ 48` if multiple different-speed segments were merged into one element. |
-| Scale & Repo | Any non-default zoom/pan/tilt on the element, summarized as `Scale: 110%` and/or `Repo: 0.05,-0.02`. Blank if the element is untouched. |
+| Retime Summary | Empty if 100% speed. Otherwise either a percentage (e.g. `200%`) for a single retimed segment, or a breakdown like `48 @ 24, 72 @ 48` if a segmented non-linear retime, where `N @ x` means "take `N` frames of footage and make it `x` fps." |
+| Scale & Repo | Zoom / pan / tilt on the element, summarized as `Scale: 110%` and / or `Repo: 0.05,-0.02`. |
 
 ## The Change to Cut diff
 
