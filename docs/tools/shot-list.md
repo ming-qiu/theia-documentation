@@ -15,6 +15,8 @@ Builds a list of shots and a list of elements from your timeline. Listed informa
 
 * Consolidate your BG track. In the following example, track 1 and 2 both contain BG elements and need to be consolidated into 1 track.
 
+* Some frame counters might need to be adjusted as you consolidate the video tracks. See example below.
+
 **Fig. 1 Consolidate timeline**
 
 ![Consolidate timeline](./screenshots/shot_list_consolidate_timeline.gif)
