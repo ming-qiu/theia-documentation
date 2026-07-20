@@ -4,7 +4,7 @@ Theia is a suite of VFX editorial tools for **DaVinci Resolve Studio**. It conne
 
 Named after the Greek Titan goddess of sight and heavenly light, 明察秋毫 ("to see the finest details with keen observation") is the idea behind the toolset: give editors and VFX coordinators a clear, detailed view into their timeline's VFX data.
 
-!!! warning "Requires DaVinci Resolve Studio"
+!!! info "Requires DaVinci Resolve Studio"
     Theia uses Resolve's scripting API, which is only available in **DaVinci Resolve Studio** (the paid version). The free version of Resolve does not include it.
 
 ## What's in the box
