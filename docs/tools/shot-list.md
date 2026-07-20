@@ -78,7 +78,7 @@ Choose a preset (23.976, 24, 25, 30, 60) or **Custom...**. Shot List tries to au
 
 ### Go
 
-Validates that a frame rate, Frame Counter Track, and output path are set (and that the Old Shot List file, if given, actually exists), then processes every shot on the Frame Counter Track in timeline order.
+Validates that a frame rate, Frame Counter Track, and output path are set, then processes every shot on the Frame Counter Track in timeline order.
 
 ## What ends up in the spreadsheet
 
@@ -111,7 +111,7 @@ Shot List writes two sheets.
 | Clip In / Out, Clip In / Out Frames, Clip In / Out TC | The element's source in / out, in VFX frame numbers, raw frame numbers, and timecode |
 | ScanIn / ScanOut | Clip In/Out minus/plus the Scan Handle — what to actually pull from the scan or source media. |
 | Retime Summary | Empty if 100% speed. Otherwise either a percentage (e.g. `200%`) for a single retimed segment, or a breakdown like `48 @ 24, 72 @ 48` if a segmented non-linear retime, where `N @ x` means "take `N` frames of footage and make it `x` fps." |
-| Scale & Repo | Zoom / pan / tilt on the element, summarized as `Scale: 110%` and / or `Repo: 0.05,-0.02`. |
+| Scale & Repo | Zoom / pan / tilt on the element, summarized as `Scale: 110%` and / or `Repo: 300,-20`. |
 
 ## The Change to Cut diff
 
