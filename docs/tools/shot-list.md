@@ -120,7 +120,7 @@ All numbers in a nutshell...
 
 **Fig. 4** SOM_0050 numbers
 
-![Frame Numbers Explained](./screenshots/shot_list_excel_frame_numbers.png)
+![Frame Numbers Explained](./screenshots/shot_list_frame_numbers.png)
 
 
 ## The Change to Cut diff
