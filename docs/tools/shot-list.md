@@ -115,6 +115,14 @@ Shot List writes two sheets.
 | Retime Summary | Empty if 100% speed. Otherwise either a percentage (e.g. `200%`) for a single retimed segment, or a breakdown like `48 @ 24, 72 @ 48` if a segmented non-linear retime, where `N @ x` means "take `N` frames of footage and make it `x` fps." |
 | Scale & Repo | Zoom / pan / tilt on the element, summarized as `Scale: 110%` and / or `Repo: 300,-20`. |
 
+
+All numbers in a nutshell...
+
+**Fig. 4** SOM_0050 numbers
+
+![Frame Numbers Explained](./screenshots/shot_list_excel_frame_numbers.png)
+
+
 ## The Change to Cut diff
 
 When you supply an **Old Shot List**, Shot List matches shots between the old and new files by **Shot Code** and compares `Cut In`/`Cut Out`. For any shot whose range changed, `Change to Cut` is filled in as:
